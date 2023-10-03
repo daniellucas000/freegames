@@ -1,0 +1,38 @@
+.read-more-target,
+.read-more-trigger_opened {
+  display: none;
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-target,
+.read-more-state:checked ~ .read-more-trigger_opened {
+  display: block;
+}
+.read-more-state:checked ~ .read-more-trigger_closed {
+  display: none;
+}
+
+.read-more-trigger_opened,
+.read-more-trigger_closed {
+  width: 7rem;
+  background: #d7ff38;
+  padding: 0.25em 0.4em;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.read-more-trigger_opened span,
+.read-more-trigger_closed span {
+  margin-left: 0.5rem;
+  font-size: 15px;
+}
+
+.read-more-wrap p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 1rem;
+}
