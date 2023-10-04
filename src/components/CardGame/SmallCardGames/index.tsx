@@ -1,8 +1,7 @@
-import { GameTitle, GenreGame, InfoGame, PlataformContainer } from '../styled';
+import { GameTitle, GenreGame, InfoGame, PlataformContainer, IconsContainer } from '../styled';
 import {
   SmallCardContainer,
   ImgContainer,
-  IconsContainer,
   GameDescription,
 } from './styled';
 import { BsWindows } from 'react-icons/bs';

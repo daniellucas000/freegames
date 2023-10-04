@@ -2,6 +2,10 @@
 .read-more-trigger_opened {
   display: none;
 }
+.read-more-wrap {
+  margin-bottom: 1rem;
+}
+
 .read-more-state:checked ~ .read-more-wrap .read-more-target,
 .read-more-state:checked ~ .read-more-trigger_opened {
   display: block;
@@ -35,4 +39,5 @@
   line-height: 1.5;
   color: #000;
   margin-bottom: 1rem;
+  white-space: break-spaces;
 }

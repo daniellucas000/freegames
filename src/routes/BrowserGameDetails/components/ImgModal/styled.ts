@@ -17,6 +17,10 @@ export const Content = styled(Dialog.Content)`
   left: 50%;
   transform: translate(-50%, -50%);
 
+  @media (max-width: 576px) {
+    min-width: 22rem;
+  }
+
   img {
     max-width: 100%;
     width: 100%;

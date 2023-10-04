@@ -47,7 +47,7 @@ export const HeroContainer = styled('section')`
     left: 18%;
 
     @media (max-width: 576px) {
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -16%);

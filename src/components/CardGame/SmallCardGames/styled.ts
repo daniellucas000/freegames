@@ -14,7 +14,7 @@ export const SmallCardContainer = styled('div')`
     text-overflow: ellipsis;
 
     @media (max-width: 576px) {
-      max-width: 220px;
+      max-width: 300px;
     }
   }
 `;
@@ -33,8 +33,3 @@ export const ImgContainer = styled('div')`
   }
 `;
 
-export const IconsContainer = styled('div')`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;

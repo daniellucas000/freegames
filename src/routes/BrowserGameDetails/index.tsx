@@ -83,8 +83,10 @@ export function BrowserGameDetail() {
               id="read-more"
             />
             <div className={styles['read-more-wrap']}>
-              <p>{firstparagraph}</p>
-              <p className={styles['read-more-target']}>{lastparagraph}</p>
+              <p style={{ display: 'inline' }}>
+                {firstparagraph}{' '}
+                <p className={styles['read-more-target']}>{lastparagraph}</p>
+              </p>
             </div>
             <label
               className={styles['read-more-trigger_closed']}

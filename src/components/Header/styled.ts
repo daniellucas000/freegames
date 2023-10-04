@@ -18,6 +18,13 @@ export const HeaderWrapper = styled('div')`
   width: 100%;
   margin: 0 auto;
 
+  svg:last-child {
+    display: none;
+    @media (max-width: 576px) {
+      display: block;
+    }
+  }
+
   @media (max-width: 576px) {
     padding: 2rem;
   }
@@ -25,6 +32,10 @@ export const HeaderWrapper = styled('div')`
   nav {
     display: flex;
     gap: 2.2rem;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
 
     a {
       color: #000;

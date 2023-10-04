@@ -6,7 +6,7 @@ export const ImgContainer = styled('div')`
   margin-right: 2.188rem;
 
   @media (max-width: 576px) {
-    max-width: 170px;
+    max-width: 120px;
     height: 100%;
     margin-right: 1rem;
   }

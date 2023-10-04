@@ -1,10 +1,10 @@
-import { IconsContainer } from '../SmallCardGames/styled';
 import {
   InfoGame,
   PlataformContainer,
   LargeCardContainer,
   GenreGame,
   GameTitle,
+  IconsContainer,
 } from '../styled';
 import { ImgContainer } from './styled';
 import { BsWindows } from 'react-icons/bs';
@@ -21,7 +21,7 @@ export function LargeCardGames({ ...props }) {
             <img src={props.thumbnail} alt="" />
           </ImgContainer>
 
-          <InfoGame type='large'>
+          <InfoGame type="large">
             <div>
               <GameTitle type="great">{props.title}</GameTitle>
               <p>{props.short_description}</p>
@@ -33,7 +33,7 @@ export function LargeCardGames({ ...props }) {
           <span>
             {props.platform === 'PC (Windows)' ? <BsWindows size={20} /> : null}
             {props.platform === 'PC (Windows), Web Browser' ? (
-              <IconsContainer>
+              <IconsContainer type={'large'}>
                 <BsWindows size={20} />
                 <PiBrowsersThin size={26} />
               </IconsContainer>

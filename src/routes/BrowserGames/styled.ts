@@ -11,7 +11,7 @@ export const BrowserGamesContainer = styled('section')`
     margin: 0 auto;
 
     @media (max-width: 576px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       margin: 1rem;
       grid-gap: 0.8rem;
     }

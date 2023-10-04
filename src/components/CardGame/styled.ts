@@ -10,6 +10,9 @@ interface InfoGameProps {
 interface PlataformContainerProps {
   readonly type: string;
 }
+interface IconsContainerProps {
+  readonly type?: string;
+}
 
 export const LargeCardContainer = styled('div')`
   display: flex;
@@ -22,6 +25,7 @@ export const LargeCardContainer = styled('div')`
 
   @media (max-width: 576px) {
     margin: 1rem;
+    padding: 1rem;
   }
 
   > div {
@@ -35,12 +39,17 @@ export const InfoGame = styled('div')<InfoGameProps>`
   justify-content: space-between;
   max-width: ${(props) =>
     props.type === 'small' ? '100%' : props.type === 'large' ? '70%' : null};
+
+  @media (max-width: 576px) {
+    gap: 1rem;
+  }
+
   p {
     font-size: 1rem;
     line-height: 24px;
 
     @media (max-width: 576px) {
-      max-width: 262px;
+      max-width: 180px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -60,7 +69,12 @@ export const GameTitle = styled('span')<GameTitleProps>`
 
   @media (max-width: 576px) {
     display: block;
-    width: 256px;
+    max-width: ${(props) =>
+      props.type === 'small'
+        ? '300px'
+        : props.type === 'great'
+        ? '170px'
+        : null};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -108,5 +122,16 @@ export const PlataformContainer = styled('div')<PlataformContainerProps>`
 
   span svg {
     color: #00adef;
+  }
+`;
+
+export const IconsContainer = styled('div')<IconsContainerProps>`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 576px) {
+    flex-direction: ${(props) => (props.type === 'large' ? 'column' : null)};
+    gap: ${(props) => (props.type === 'large' ? '0.8rem' : null)};
   }
 `;

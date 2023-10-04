@@ -76,6 +76,11 @@ export const ScreenshotsContainer = styled('div')`
     border-radius: 0.25rem;
     height: 146px;
     cursor: pointer;
+
+    @media (max-width: 576px) {
+      width: 100%;
+      height: 120px;
+    }
   }
 `;
 
