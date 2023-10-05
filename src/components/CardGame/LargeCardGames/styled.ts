@@ -16,5 +16,9 @@ export const ImgContainer = styled('div')`
     height: 100%;
     object-fit: fill;
     border-radius: 0.25rem;
+
+    @media (max-width: 576px) {
+      height: 80%;
+    }
   }
 `;

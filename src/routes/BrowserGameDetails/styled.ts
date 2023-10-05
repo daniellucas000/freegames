@@ -36,6 +36,10 @@ export const InformationGrid = styled('div')`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const InfoCol = styled('div')`
@@ -88,6 +92,10 @@ export const MinimumRequirementsContainer = styled('div')`
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   grid-gap: 1rem;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 
   div:nth-child(8) {
     grid-column: 1;
