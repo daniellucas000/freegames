@@ -17,7 +17,7 @@ export function Header() {
       <HeaderContainer>
         <HeaderWrapper>
           <Link to="/">
-            <h1>Logo</h1>
+            <h1>Free games</h1>
           </Link>
 
           <nav>

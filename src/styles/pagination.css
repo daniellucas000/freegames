@@ -1,0 +1,58 @@
+/* pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.pagination a {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination li:first-child a, .pagination li:last-child a {
+  background: none;
+  border: none;
+}
+
+
+
+.pagination .active a {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination .break {
+  display: inline-block;
+}
+
+/* Estilos padrão para telas maiores */
+.pagination a {
+  padding: 8px 12px;
+}
+
+.pagination .previous a,
+.pagination .next a {
+  padding: 8px 12px;
+}
+
+/* Estilos para telas menores (max-width: 576px) */
+@media (max-width: 576px) {
+  .pagination a {
+    padding: 5px 10px;
+  }
+
+  .pagination .previous a,
+  .pagination .next a {
+    padding: 5px 10px;
+  }
+}

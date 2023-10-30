@@ -1,6 +1,12 @@
+import { useState, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import { useFetch } from '../../hooks/useFetch';
 import { CardGame } from '../../components/CardGame';
 import { HeroContainer, Recommendations } from './styled';
+
+import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
+
+import '../../styles/pagination.css';
 
 export interface GamesProps {
   id: number;
@@ -27,9 +33,25 @@ export function Home() {
     }
   );
 
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    setCurrentPage(0); // Reset the current page when data changes
+  }, [data]);
+
   if (loading) return <div>Psiu</div>;
 
   if (!data) return null;
+
+  const offset = currentPage * itemsPerPage;
+  const currentData = data.slice(offset, offset + itemsPerPage);
+
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageClick = ({ selected }: { selected: number }) => {
+    setCurrentPage(selected);
+  };
 
   return (
     <main>
@@ -45,7 +67,7 @@ export function Home() {
 
       <Recommendations>
         <div>
-          {data.map((item) => (
+          {currentData.map((item) => (
             <CardGame
               key={item.id}
               id={item.id}
@@ -60,6 +82,17 @@ export function Home() {
           ))}
         </div>
       </Recommendations>
+      <ReactPaginate
+        pageCount={pageCount}
+        pageRangeDisplayed={4}
+        marginPagesDisplayed={2}
+        previousLabel={<GrFormPrevious />}
+        nextLabel={<GrFormNext />}
+        breakLabel={'...'}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+      />
     </main>
   );
 }

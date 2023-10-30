@@ -12,7 +12,7 @@ export const Row = styled('div')`
     grid-template-columns: 1fr;
   }
 
-  > div {
+  > div:nth-child(2) {
     padding: 1rem;
   }
 

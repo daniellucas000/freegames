@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
     font-family: 'Bai Jamjuree', sans-serif;
     overflow-x: hidden;
-    /* background: #333; */
+    padding-bottom: 5rem;
 }
 
 ul {
@@ -26,4 +26,3 @@ img {
     display: block;
 }
 `;
-
