@@ -27,13 +27,13 @@ export const HeroContainer = styled('section')`
 
       @keyframes move {
         0% {
-          transform: translateX(-300px);
+          transform: translateX(-500px);
         }
         50% {
           transform: translateX(300px);
         }
         100% {
-          transform: translateX(-300px);
+          transform: translateX(-500px);
         }
       }
     }
@@ -72,4 +72,10 @@ export const Recommendations = styled('section')`
     margin: 0 auto;
     width: 100%;
   }
+`;
+
+
+export const PaginationContainer = styled('div')`
+ display: flex;
+ justify-content: center;
 `;

@@ -12,6 +12,12 @@ export const Row = styled('div')`
     grid-template-columns: 1fr;
   }
 
+  > div:nth-child(1) {
+    @media (max-width: 576px) {
+      padding: 1rem;
+    }
+  }
+
   > div:nth-child(2) {
     padding: 1rem;
   }

@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
-import ReactPaginate from 'react-paginate';
+import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { CardGame } from '../../components/CardGame';
-import { HeroContainer, Recommendations } from './styled';
+import { HeroContainer, PaginationContainer, Recommendations } from './styled';
 
-import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
-
-import '../../styles/pagination.css';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import { SkeletonScreen } from '../../components/Skeleton';
 
 export interface GamesProps {
   id: number;
@@ -34,24 +33,22 @@ export function Home() {
   );
 
   const itemsPerPage = 10;
-  const [currentPage, setCurrentPage] = useState(0);
+  const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    setCurrentPage(0); // Reset the current page when data changes
-  }, [data]);
-
-  if (loading) return <div>Psiu</div>;
+  if (loading) return <SkeletonScreen />;
 
   if (!data) return null;
 
-  const offset = currentPage * itemsPerPage;
-  const currentData = data.slice(offset, offset + itemsPerPage);
-
-  const pageCount = Math.ceil(data.length / itemsPerPage);
-
-  const handlePageClick = ({ selected }: { selected: number }) => {
-    setCurrentPage(selected);
+  const handlePageChange = (
+    _event: React.ChangeEvent<unknown>,
+    newPage: number
+  ) => {
+    setPage(newPage);
   };
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const displayedData = data.slice(startIndex, endIndex);
 
   return (
     <main>
@@ -67,7 +64,7 @@ export function Home() {
 
       <Recommendations>
         <div>
-          {currentData.map((item) => (
+          {displayedData.map((item) => (
             <CardGame
               key={item.id}
               id={item.id}
@@ -82,17 +79,24 @@ export function Home() {
           ))}
         </div>
       </Recommendations>
-      <ReactPaginate
-        pageCount={pageCount}
-        pageRangeDisplayed={4}
-        marginPagesDisplayed={2}
-        previousLabel={<GrFormPrevious />}
-        nextLabel={<GrFormNext />}
-        breakLabel={'...'}
-        onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        activeClassName={'active'}
-      />
+
+      <PaginationContainer>
+        <Stack spacing={2} sx={{ justifyContent: 'center', mt: 2 }}>
+          <Pagination
+            count={Math.ceil(data.length / itemsPerPage)}
+            page={page}
+            onChange={handlePageChange}
+            color="primary"
+            shape="rounded"
+            sx={{
+              '& .Mui-selected': {
+                backgroundColor: 'primary.main',
+                color: 'white',
+              },
+            }}
+          />
+        </Stack>
+      </PaginationContainer>
     </main>
   );
 }

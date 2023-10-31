@@ -29,19 +29,3 @@ export const Content = styled(Dialog.Content)`
     border: 0;
   }
 `;
-
-export const CloseButton = styled(Dialog.Close)`
-  position: absolute;
-  background: transparent;
-  border: 0;
-  top: -2.5rem;
-  right: -2.5rem;
-  line-height: 0;
-  cursor: pointer;
-  color: #fff;
-  outline: 0;
-
-  @media (max-width: 576px) {
-    right: -1.5rem;
-  }
-`;
