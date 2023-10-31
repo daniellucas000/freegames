@@ -6,7 +6,7 @@ export const ImgContainer = styled('div')`
   margin-right: 2.188rem;
 
   @media (max-width: 576px) {
-    max-width: 135px;
+    max-width: 130px;
     height: 100%;
     margin-right: 1rem;
   }
@@ -15,10 +15,6 @@ export const ImgContainer = styled('div')`
     width: 100%;
     height: 100%;
     object-fit: fill;
-    border-radius: 0.25rem;
-
-    /* @media (max-width: 576px) {
-      height: 80%;
-    } */
+    border-radius: 0.25rem; 
   }
 `;

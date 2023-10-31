@@ -21,7 +21,7 @@ export const HeroContainer = styled('section')`
 
       @media (max-width: 576px) {
         font-size: 14.08rem;
-        animation: move 16s infinite linear;
+        animation: move 18s infinite linear;
         font-size: 6.08rem;
       }
 

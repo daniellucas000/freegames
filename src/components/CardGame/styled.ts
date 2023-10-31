@@ -25,7 +25,7 @@ export const LargeCardContainer = styled('div')`
 
   @media (max-width: 576px) {
     margin: 1rem;
-    padding: 0.8rem;
+    padding: 0.6rem;
   }
 
   > div {
