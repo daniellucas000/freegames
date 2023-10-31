@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const BrowserGamesContainer = styled('section')`
   margin-top: 1.5rem;
 
-  > div {
+  > div:nth-child(1) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1.1rem;

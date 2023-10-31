@@ -18,6 +18,7 @@ import styles from './collapse.module.css';
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { ImgModal } from './components/ImgModal';
+import { BrowserGameDetailsSkeleton } from '../../components/Skeleton/browserGameDetailsSkeleton';
 
 interface MinimumRequirementsProps {
   os: string;
@@ -59,7 +60,7 @@ export function BrowserGameDetail() {
     }
   );
 
-  if (loading) return <div>Psiu</div>;
+  if (loading) return <BrowserGameDetailsSkeleton />;
 
   if (!data) return null;
 
@@ -83,10 +84,10 @@ export function BrowserGameDetail() {
               id="read-more"
             />
             <div className={styles['read-more-wrap']}>
-              <p style={{ display: 'inline' }}>
+              <span>
                 {firstparagraph}{' '}
                 <p className={styles['read-more-target']}>{lastparagraph}</p>
-              </p>
+              </span>
             </div>
             <label
               className={styles['read-more-trigger_closed']}

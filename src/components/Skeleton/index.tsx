@@ -3,12 +3,13 @@ import { Card, CardContent, Skeleton, Box, Grid } from '@mui/material';
 export function SkeletonScreen() {
   const mediaQuery = window.matchMedia('(max-width: 576px)');
 
-  const myElementStyle = {
+  const style = {
     ...(mediaQuery.matches && {
       maxWidth: '135px',
       height: '98px',
     }),
   };
+  
   return (
     <Grid>
       <Box mb={2}>
@@ -35,7 +36,7 @@ export function SkeletonScreen() {
               variant="rounded"
               width={'17.24rem'}
               height={'10.5rem'}
-              style={myElementStyle}
+              style={style}
             />
 
             <Box display={'flex'} flexDirection={'column'} width={100} ml={2}>
@@ -71,7 +72,7 @@ export function SkeletonScreen() {
               variant="rounded"
               width={'17.24rem'}
               height={'10.5rem'}
-              style={myElementStyle}
+              style={style}
             />
 
             <Box display={'flex'} flexDirection={'column'} width={100} ml={2}>

@@ -18,7 +18,7 @@ export function MenuMobile({
   }, [menuIsVisible]);
 
   return (
-    <Container isVisible={menuIsVisible}>
+    <Container $isVisible={menuIsVisible}>
       <IoClose size={45} onClick={() => setMenuIsVisible(false)} />
       <nav>
         <Link to="/">Free Games</Link>

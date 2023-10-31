@@ -1,18 +1,19 @@
+import { useState } from 'react';
 import { CardGame } from '../../components/CardGame';
+import { SkeletonBrowserGames } from '../../components/Skeleton/browserGameSkeleton';
 import { useFetch } from '../../hooks/useFetch';
 import { BrowserGamesContainer } from './styled';
+import { Pagination, Stack } from '@mui/material';
+import { PaginationContainer } from '../Home/styled';
 
 interface BrowserGames {
-  id: number;
   title: string;
+  developer: string;
   thumbnail: string;
   short_description: string;
-  game_url: string;
-  genre: string;
   platform: string;
-  publisher: string;
-  developer: string;
-  release_date: string;
+  genre: string;
+  id: number;
 }
 
 export function BrowserGames() {
@@ -27,13 +28,29 @@ export function BrowserGames() {
     }
   );
 
-  if (loading) return <div>Psiu</div>;
+  const itemsPerPage = 8;
+  const [page, setPage] = useState(1);
+
+  if (loading) return <SkeletonBrowserGames />;
   if (!data) return null;
+
+
+  const handlePageChange = (
+    _event: any,
+    value: React.SetStateAction<number>
+  ) => {
+    setPage(value);
+  };
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const gamesToDisplay = data.slice(startIndex, endIndex);
 
   return (
     <BrowserGamesContainer>
       <div>
-        {data.map((item) => (
+        {gamesToDisplay.map((item) => (
           <CardGame
             key={item.id}
             id={item.id}
@@ -43,10 +60,27 @@ export function BrowserGames() {
             thumbnail={item.thumbnail}
             short_description={item.short_description}
             platform={item.platform}
-            type='small'
+            type="small"
           />
         ))}
       </div>
+      <PaginationContainer>
+        <Stack spacing={2} sx={{ justifyContent: 'center', mt: 2 }}>
+          <Pagination
+            count={Math.ceil(data.length / itemsPerPage)}
+            page={page}
+            onChange={handlePageChange}
+            color="primary"
+            shape="rounded"
+            sx={{
+              '& .Mui-selected': {
+                backgroundColor: 'primary.main',
+                color: 'white',
+              },
+            }}
+          />
+        </Stack>
+      </PaginationContainer>
     </BrowserGamesContainer>
   );
 }

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface VisibleProps {
-  readonly isVisible: boolean;
+  readonly $isVisible: boolean;
 }
 
 export const Container = styled('div')<VisibleProps>`
@@ -55,8 +55,8 @@ export const Container = styled('div')<VisibleProps>`
     }
   }
 
-  ${({ isVisible }) =>
-    isVisible &&
+  ${({ $isVisible }) =>
+    $isVisible &&
     css`
       opacity: 1;
       pointer-events: auto;
